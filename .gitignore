@@ -102,3 +102,6 @@ dmypy.json
 
 # VS Code folder
 .vscode/
+
+# problems/: benchmarks are ignored
+problems/

@@ -78,6 +78,7 @@ from ._upgrad import UPGrad, UPGradWeighting
 from ._utils.check_dependencies import (
     OptionalDepsNotInstalledError as _OptionalDepsNotInstalledError,
 )
+from ._vsmf import VSMF, VSMFWeighting
 from ._weighting_bases import GeneralizedWeighting, Weighting
 
 __all__ = [
@@ -109,6 +110,8 @@ __all__ = [
     "TrimmedMean",
     "UPGrad",
     "UPGradWeighting",
+    "VSMF",
+    "VSMFWeighting",
     "Weighting",
 ]
 

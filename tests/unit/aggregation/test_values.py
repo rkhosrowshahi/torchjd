@@ -29,6 +29,8 @@ from torchjd.aggregation import (
     TrimmedMean,
     UPGrad,
     UPGradWeighting,
+    VSMF,
+    VSMFWeighting,
     Weighting,
 )
 
@@ -66,6 +68,11 @@ AGGREGATOR_PARAMETRIZATIONS: list[tuple] = [
     (Sum(), J_base, tensor([2.0, 2.0, 2.0])),
     (TrimmedMean(trim_number=1), J_TrimmedMean, tensor([1.5000, 2.5000])),
     (UPGrad(), J_base, tensor([0.2929, 1.9004, 1.9004])),
+    (
+        VSMF(K=2, num_inner_iters=5, seed=0, warm_start=False),
+        J_base,
+        tensor([0.0, 1.0, 1.0]),
+    ),
 ]
 
 G_base = J_base @ J_base.T
@@ -83,6 +90,7 @@ WEIGHTING_PARAMETRIZATIONS: list[tuple] = [
     (RandomWeighting(), G_base, tensor([0.8623, 0.1377])),
     (SumWeighting(), G_base, tensor([1.0, 1.0])),
     (UPGradWeighting(), G_base, tensor([1.1109, 0.7894])),
+    (VSMFWeighting(K=2, num_inner_iters=5, seed=0), G_base, tensor([0.6000, 0.4000])),
 ]
 
 try:

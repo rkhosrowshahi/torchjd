@@ -28,6 +28,7 @@ Abstract base classes
     :maxdepth: 1
 
     upgrad.rst
+    vsmf.rst
     aligned_mtl.rst
     cagrad.rst
     config.rst
