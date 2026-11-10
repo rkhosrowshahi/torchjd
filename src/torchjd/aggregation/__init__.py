@@ -57,6 +57,7 @@ from ._modo import MoDoWeighting
 from ._nash_mtl import NashMTL
 from ._pcd import PCD, PCDWeighting
 from ._pcgrad import PCGrad, PCGradWeighting
+from ._pga import OSNMFPGA, SVDPGA, OSNMFPGAWeighting, SVDPGAWeighting
 from ._random import Random, RandomWeighting
 from ._sdmgrad import SDMGradWeighting
 from ._sum import Sum, SumWeighting
@@ -94,6 +95,8 @@ __all__ = [
     "MGDAWeighting",
     "MoDoWeighting",
     "NashMTL",
+    "OSNMFPGA",
+    "OSNMFPGAWeighting",
     "PCD",
     "PCDWeighting",
     "PCGrad",
@@ -103,6 +106,8 @@ __all__ = [
     "SDMGradWeighting",
     "Sum",
     "SumWeighting",
+    "SVDPGA",
+    "SVDPGAWeighting",
     "TrimmedMean",
     "UPGrad",
     "UPGradWeighting",

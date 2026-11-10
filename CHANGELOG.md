@@ -8,6 +8,17 @@ changelog does not include internal changes that do not affect the user.
 
 ## [Unreleased]
 
+### Added
+
+- Added `SVDPGA` and `SVDPGAWeighting` (Principal Gradient Alignment with SVD). `SVDPGA` averages
+  the principal directions (left singular vectors) of the gradients, each oriented towards the side
+  where most of the gradients lie, and only needs the Gramian of the Jacobian.
+- Added `OSNMFPGA` and `OSNMFPGAWeighting` (Principal Gradient Alignment with orthogonal
+  semi-nonnegative matrix factorization). `OSNMFPGA` approximates the gradients by `WH`, with
+  orthonormal columns in `W` and nonnegative entries in `H`, using alternating nonnegative least
+  squares and orthogonal Procrustes steps computed from the Gramian, and averages the columns of
+  `W`.
+
 ### Fixed
 
 - Fixed `.to()` not moving the tensors given to the `Constant`, `STCH`, `PBI` and `COSMOS`

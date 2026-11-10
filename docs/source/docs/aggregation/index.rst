@@ -42,6 +42,7 @@ Abstract base classes
     nash_mtl.rst
     pcd.rst
     pcgrad.rst
+    pga.rst
     random.rst
     sdmgrad.rst
     sum.rst
