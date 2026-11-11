@@ -4,6 +4,8 @@ from torchjd._linalg import QuadprogProjector
 from torchjd.aggregation import (
     IMTLG,
     MGDA,
+    OSNMFPGA,
+    SVDPGA,
     AlignedMTL,
     CAGrad,
     DualProj,
@@ -32,6 +34,8 @@ AGGREGATORS = {
     "pcgrad": PCGrad(),
     "random": Random(),
     "mean": Mean(),
+    "svd_pga": SVDPGA(rank=2),
+    "os_nmf_pga": OSNMFPGA(rank=2),
 }
 LR_MULTIPLIERS = {
     "upgrad": 1.0,
@@ -45,6 +49,8 @@ LR_MULTIPLIERS = {
     "pcgrad": 0.5,
     "random": 1.0,
     "mean": 1.0,
+    "svd_pga": 1.0,
+    "os_nmf_pga": 1.0,
 }
 # Some methods have optimal LRs that are very problem-specific. This allows overriding the LR
 # per-problem.
@@ -54,6 +60,7 @@ LR_MULTIPLIER_OVERRIDES = {
         "imtl_g": 2.0,
     },
     "CQF": {"nashmtl": 0.5},
+    "EWQ": {"svd_pga": 4.0, "os_nmf_pga": 4.0},
 }
 AGGREGATOR_ORDER = {
     "upgrad": 9,
@@ -66,6 +73,8 @@ AGGREGATOR_ORDER = {
     "dualproj": 2,
     "random": 6,
     "mean": 0,
+    "svd_pga": 10,
+    "os_nmf_pga": 11,
     # No location for PCGrad as it's equivalent to UPGrad with 2 objectives
 }
 LATEX_NAMES = {
@@ -80,6 +89,8 @@ LATEX_NAMES = {
     "pcgrad": r"$\mathcal A_{\mathrm{PCGrad}}$",
     "random": r"$\mathcal A_{\mathrm{RGW}}$",
     "mean": r"$\mathcal A_{\mathrm{Mean}}$",
+    "svd_pga": r"$\mathcal A_{\mathrm{SVD-PGA}}$",
+    "os_nmf_pga": r"$\mathcal A_{\mathrm{OS-NMF-PGA}}$",
 }
 
 # Sometimes we need to override the xlim and ylim of the value plot to zoom enough

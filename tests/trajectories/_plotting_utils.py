@@ -24,7 +24,7 @@ def compute_subplot_layout(n_aggregators: int) -> tuple[int, int]:
     """Compute subplot layout (n_rows, n_cols) based on number of aggregators.
 
     :param n_aggregators: Number of aggregators to plot.
-    :raises ValueError: If n_aggregators is not between 1 and 10.
+    :raises ValueError: If n_aggregators is not between 1 and 12.
     """
     if n_aggregators <= 5:
         return 1, n_aggregators
@@ -34,6 +34,8 @@ def compute_subplot_layout(n_aggregators: int) -> tuple[int, int]:
         return 2, 4
     if n_aggregators == 9 or n_aggregators == 10:
         return 2, 5
+    if n_aggregators == 11 or n_aggregators == 12:
+        return 2, 6
     raise ValueError(f"Unsupported number of aggregators: {n_aggregators}")
 
 
@@ -50,9 +52,9 @@ def get_subplot_position(
     if n_rows == 1:
         return 0, order
     # For 2 rows: n_cols equals both n_aggregators//2 (even split) and (n_aggregators+1)//2 (odd).
-    if n_aggregators in [6, 8, 10]:
+    if n_aggregators in [6, 8, 10, 12]:
         return order // n_cols, order % n_cols
-    if n_aggregators in [7, 9]:
+    if n_aggregators in [7, 9, 11]:
         if order < n_cols:
             return 0, order
         return 1, order - n_cols
